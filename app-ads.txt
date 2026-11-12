@@ -1,5 +1,8 @@
 OWNERDOMAIN=caglar-coban.github.io
 
+# Google AdMob
+google.com, pub-7564217961192216, DIRECT, f08c47fec0942fa0
+
 # ironSource / LevelPlay
 ironsrc.com, 689551, DIRECT
 media.net, 8CUH2L333, RESELLER
