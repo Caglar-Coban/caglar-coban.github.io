@@ -48,7 +48,8 @@
     document.getElementById("android").textContent = "Google Play'den Alın";
     document.getElementById("by").textContent = "Tek başına çalışan bağımsız bir geliştiriciden · CagVerse";
   }
-  var ios = "https://apps.apple.com/app/id6828130577?ct=" + s;
+  // pt = App Store Connect sağlayıcı kodu (Campaign Link Generator), ct = kampanya etiketi
+  var ios = "https://apps.apple.com/app/id6828130577?pt=129692221&ct=" + s + "&mt=8";
   var android = "https://play.google.com/store/apps/details?id=com.cagverse.chocomerge&referrer=" +
                 encodeURIComponent("utm_source=" + s + "&utm_medium=social&utm_campaign=smartlink");
   document.getElementById("ios").href = ios;
