@@ -27,15 +27,27 @@
 <body>
 <main>
   <h1>🍫 Choco Merge</h1>
-  <p>Swipe, merge, make chocolate.<br>Free on iPhone &amp; Android.</p>
+  <p id="tag">Swipe, merge, make chocolate.<br>Free on iPhone &amp; Android.</p>
   <a class="btn" id="ios" href="https://apps.apple.com/app/id6828130577">Download on the App Store</a>
   <a class="btn alt" id="android" href="https://play.google.com/store/apps/details?id=com.cagverse.chocomerge">Get it on Google Play</a>
-  <small>Made by a solo indie dev · CagVerse</small>
+  <small id="by">Made by a solo indie dev · CagVerse</small>
 </main>
 <script>
 (function () {
   // ?s=ig / tt / yt / fb / x / th / rd / baba ... -> kanal etiketi (yalnızca güvenli karakterler)
-  var s = (new URLSearchParams(location.search).get("s") || "direct").toLowerCase().replace(/[^a-z0-9_-]/g, "").slice(0, 20) || "direct";
+  var q = new URLSearchParams(location.search);
+  var s = (q.get("s") || "direct").toLowerCase().replace(/[^a-z0-9_-]/g, "").slice(0, 20) || "direct";
+  // Dil: ?l=tr / ?l=en zorlar; yoksa tarayıcı dili Türkçe ise Türkçe
+  var l = (q.get("l") || "").toLowerCase();
+  var tr = l ? l === "tr" : /^tr\b/i.test(navigator.language || "");
+  if (tr) {
+    document.documentElement.lang = "tr";
+    document.title = "Choco Merge — İndir";
+    document.getElementById("tag").innerHTML = "Kaydır, birleştir, çikolata yap.<br>iPhone ve Android'de ücretsiz.";
+    document.getElementById("ios").textContent = "App Store'dan İndirin";
+    document.getElementById("android").textContent = "Google Play'den Alın";
+    document.getElementById("by").textContent = "Tek başına çalışan bağımsız bir geliştiriciden · CagVerse";
+  }
   var ios = "https://apps.apple.com/app/id6828130577?ct=" + s;
   var android = "https://play.google.com/store/apps/details?id=com.cagverse.chocomerge&referrer=" +
                 encodeURIComponent("utm_source=" + s + "&utm_medium=social&utm_campaign=smartlink");
